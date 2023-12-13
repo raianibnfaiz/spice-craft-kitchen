@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner'
 import Category from '../Category/Category'
 import PopularMenu from '../PopularMenu/PopularMenu'
 import { Helmet } from 'react-helmet'
+import Feature from '../../Feature/Feature'
 
 export default class Home extends Component {
   render() {
@@ -16,6 +17,7 @@ export default class Home extends Component {
         <Banner></Banner>
         <Category></Category>
         <PopularMenu></PopularMenu>
+        <Feature></Feature>
       </div>
     )
   }
