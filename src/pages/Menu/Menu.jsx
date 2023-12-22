@@ -9,6 +9,7 @@ import desertImg from '../../assets/menu/dessert-bg.jpeg'
 import pizzaImg from '../../assets/menu/pizza-bg.jpg'
 import saladImg from '../../assets/menu/salad-bg.jpg'
 import soupImg from '../../assets/menu/soup-bg.jpg'
+import drinksImg from '../../assets/menu/drinks.jpg'
 
 const Menu = () => {
   const [menu] = useMenu([]);
@@ -16,6 +17,7 @@ const Menu = () => {
   const soupItems = menu.filter(item => item.category === 'soup')
   const pizzaItems = menu.filter(item => item.category === 'pizza')
   const saladItems = menu.filter(item => item.category === 'salad')
+  const drinksItems = menu.filter(item => item.category === 'drinks')
   const offeredItems = menu.filter(item => item.category === 'offered')
 
   return (
@@ -28,10 +30,11 @@ const Menu = () => {
         <Cover img = {menuImg} title = "our menu"></Cover>
         <SectionHeader subHeading={"Don't Miss"} heading={"Today's Offer"}></SectionHeader>
         <MenuCategory items={offeredItems}></MenuCategory>
-        <MenuCategory items={desertItems} title='Desert' coverImg={desertImg}></MenuCategory>
-        <MenuCategory items={pizzaItems} title='Pizza' coverImg={pizzaImg}></MenuCategory>
-        <MenuCategory items={saladItems} title='Salad' coverImg={saladImg}></MenuCategory>
-        <MenuCategory items={soupItems} title='Soup' coverImg={soupImg}></MenuCategory>
+        <MenuCategory items={desertItems} title='dessert' coverImg={desertImg}></MenuCategory>
+        <MenuCategory items={pizzaItems} title='pizza' coverImg={pizzaImg}></MenuCategory>
+        <MenuCategory items={saladItems} title='salad' coverImg={saladImg}></MenuCategory>
+        <MenuCategory items={soupItems} title='soup' coverImg={soupImg}></MenuCategory>
+        <MenuCategory items={drinksItems} title='drinks' coverImg={drinksImg}></MenuCategory>
     </div>
   )
 }

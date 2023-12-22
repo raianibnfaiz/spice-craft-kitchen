@@ -7,14 +7,19 @@ import useMenu from '../../hooks/useMenu';
 import FoodCard from '../../Components/FoodCard/FoodCard';
 import OrderTab from './OrderTab';
 import { Helmet } from 'react-helmet';
+import { useParams } from 'react-router-dom';
 const Order = () => {
-  const [tabIndex,setTabIndex] = useState(0);
-  const [menu] = useMenu([]);
+  const categories = ['salad','soup','dessert','drinks','pizza']
+  const {category} = useParams();
+  const initialIndex = categories.indexOf(category);
+  const [tabIndex,setTabIndex] = useState(initialIndex);
+  const [menu] = useMenu();
   const desertItems = menu.filter(item => item.category === 'dessert')
   const soupItems = menu.filter(item => item.category === 'soup')
-  const pizzaItems = menu.filter(item => item.category === 'pizza')
   const saladItems = menu.filter(item => item.category === 'salad')
   const drinksItem = menu.filter(item => item.category === 'drinks')
+  const pizzaItems = menu.filter(item => item.category === 'pizza')
+  
   return (
     <div>
       <Helmet>
@@ -23,7 +28,7 @@ const Order = () => {
         {/* Add more head elements as needed */}
       </Helmet>
         <Cover img={orderCover} title={"Order Food"}></Cover>
-        <Tabs defaultIndex={1} onSelect={(index) => setTabIndex(index)}>
+        <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList>
             <Tab>Salad</Tab>
             <Tab>Soup</Tab>
